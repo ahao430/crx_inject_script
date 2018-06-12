@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "JS Inject",
+  "description": "My first chrome extension.",
+  "homepage_url": "https://xxx",
+  "version": "1.1",
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+  "content_scripts": [{
+    "js": [ "content.js"],
+    "matches": ["*://*/*"]
+  }],
+  "options_page": "options.html",
+  "browser_action": {
+    "default_icon": "./img/icon.png",
+    "default_title": "注入js脚本到页面",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources" : [
+    "vendor/jQuery.min.js",
+    "vendor/axios.min.js",
+    "vendor/lodash.min.js",
+    "vendor/vue.min.js",
+    "vendor/angular.min.js"
+  ],
+  "permissions": [
+    "contextMenus",
+    "notifications",
+    "storage"
+  ]
+}
