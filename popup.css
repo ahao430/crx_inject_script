@@ -1,0 +1,44 @@
+html, body{margin: 0; padding: 0;}
+h3{
+  white-space: nowrap;
+  padding: 0 10px;
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li{
+  white-space: nowrap;
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+  margin: 0;
+  padding: 0 30px;
+  user-select: none;
+}
+li:hover{
+  cursor: pointer;
+  background: #ccc;
+}
+li.active:before{
+  content: '✔';
+  position: absolute;
+  left: 10px;
+  color: green;
+}
+.code{
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+}
+.code textarea{
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+.code button{
+}
