@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Language Swicher",
+  "description": "My 2nd chrome extension.",
+  "homepage_url": "https://xxx",
+  "version": "0.1",
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+  "content_scripts": [{
+    "js": [ "content.js"],
+    "matches": ["http://*/*", "https://*/*", "file://*/*"]
+  }],
+  "browser_action": {
+    "default_icon": "./unknown.png",
+    "default_title": "切换语言"
+  },
+  "permissions": [
+    "cookies",
+    "storage",
+    "notifications"
+  ]
+}
