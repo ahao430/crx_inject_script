@@ -1,23 +1,32 @@
 {
   "manifest_version": 2,
-  "name": "Language Swicher",
-  "description": "My 2nd chrome extension.",
+  "name": "JS Inject",
+  "description": "My first chrome extension.",
   "homepage_url": "https://xxx",
-  "version": "0.1",
+  "version": "1.1",
   "background": {
     "scripts": [ "background.js" ]
   },
   "content_scripts": [{
     "js": [ "content.js"],
-    "matches": ["http://*/*", "https://*/*", "file://*/*"]
+    "matches": ["*://*/*"]
   }],
+  "options_page": "options.html",
   "browser_action": {
-    "default_icon": "./unknown.png",
-    "default_title": "切换语言"
+    "default_icon": "./img/icon.png",
+    "default_title": "注入js脚本到页面",
+    "default_popup": "popup.html"
   },
+  "web_accessible_resources" : [
+    "vendor/jQuery.min.js",
+    "vendor/axios.min.js",
+    "vendor/lodash.min.js",
+    "vendor/vue.min.js",
+    "vendor/angular.min.js"
+  ],
   "permissions": [
-    "cookies",
-    "storage",
-    "notifications"
+    "contextMenus",
+    "notifications",
+    "storage"
   ]
 }

@@ -1,22 +1,25 @@
-// 监听事件，插入cookie
 !function () {
   chrome.runtime.onMessage.addListener(function (request, sender, cb) {
     var result
-    var msg = request.msg;
+    var msg = request.msg
     switch (msg.type) {
-      case 'switch-language':
-        document.cookie=`locale=${msg.lang}; path=/`;
-        document.cookie=`locale=${msg.lang}`;
-        setTimeout(function(){
-          location.reload()
-        }, 100);
+      case 'inject-script':
+        result = addScript(msg.src, msg.test);
         break;
-      case 'get-cookie':
-        cb && cb(document.cookie);
+      case 'inject-code':
+        result = addCode(msg.text);
         break;
     }
+    cb(result);
   })
 
+  function addScript(src, test) {
+    // 需要在manifest引入资源
+    var script = document.createElement('script')
+    script.src = chrome.extension.getURL(src)
+    document.body.appendChild(script)
+    return true
+  }
   function addCode(content) {
     var script = document.createElement('script')
     script.innerHTML = content
